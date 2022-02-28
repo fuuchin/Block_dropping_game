@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ブロック落としゲーム</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="shortcut icon" href="./icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+</head>
+<body onload="preparation();" onkeydown="moveBlock(event)">
+  <div>
+    <h1 id="head">ブロック落としゲーム
+    <button id="start-btn" onclick="gamestart();">スタート</button>
+    </h1>
+  </div>
+  <div id="score-text">
+    スコア：<span id="score">0</span>&nbsp;&nbsp;
+    最高得点：<span id="highest-score">0</span>
+  </div>
+
+  <div id="canvas">
+    <!-- ゲーム画面の背景 -->
+    <canvas id="back" width="240" height="440"></canvas>
+    <!-- ブロックを書く場所 -->
+    <canvas id="game" width="240" height="440"></canvas>
+    <!-- 次のブロックの予告 -->
+    <canvas id="next-block" width="80" height="80"></canvas>
+  </div>
+
+
+  <!-- 音の読み込み -->
+
+  <!-- BGM -->
+  <audio id="bgm" preload="auto">
+    <source src="./sound/bgm.mp3" type="audio/mp3">
+  </audio>
+  <!-- 回転時の音 -->
+  <audio id="rotation" preload="auto">
+    <source src="./sound/rotation.mp3" type="audio/mp3">
+  </audio>
+  <!-- 落ちるときの音 -->
+  <audio id="falling" preload="auto">
+    <source src="./sound/falling.mp3" type="audio/mp3">
+  </audio>
+  <!-- 落ちて一番下についたときの音 -->
+  <audio id="finish_falling" preload="auto">
+    <source src="./sound/finish_falling.mp3" type="audio/mp3">
+  </audio>
+  <!-- 消した時の音 -->
+  <audio id="disappear" preload="auto">
+    <source src="./sound/disappear.mp3" type="audio/mp3">
+  </audio>
+  <!-- 4列消した時の音 -->
+  <audio id="four_columns_disappear" preload="auto">
+    <source src="./sound/four_columns_disappear.mp3" type="audio/mp3">
+  </audio>
+  <!-- ゲームオーバーのときの音 -->
+  <audio id="gameover" preload="auto">
+    <source src="./sound/gameover.mp3" type="audio/mp3">
+  </audio>
+
+  <script src="./game.js"></script>
+</body>
+</html>
